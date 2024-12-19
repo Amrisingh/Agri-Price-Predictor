@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Price Prediction</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<style>
+    .video-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); 
+        z-index: 1;
+    }
+    
+    
+    #bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+    
+    
+    </style>
+    </head>
+<body>
+
+    
+    <div class="video-bg">
+        <video autoplay muted loop id="bg-video">
+            <source src="agriculture.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" style="padding-top:16px ;">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/templates/index.html">Price Prediction</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="map.html">Interactive Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketnews.html">Agri News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+<main>
+<div class="main-content">
+    <div class="content-text">
+        <h1>Welcome to Agri-Price Predictor!</h1>
+        <p>
+            At Agri-Price Predictor, we provide cutting-edge tools and insights to help you stay informed about agricultural commodity prices. Our platform is designed to assist farmers, traders, and consumers by offering accurate price predictions for various pulses and vegetables.
+        </p>
+    </div>
+</main>
+
+
+<br>
+<section id="why-choose-us" class="text-center">
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+        <div class="reasons">
+            <div class="reason">
+                <h3><u>Real-Time Price Prediction</u></h3>
+                <p style="font-family: Comic sans ms;">Stay ahead of the market with our cutting-edge price prediction tool. Using real-time data, we accurately forecast future prices for a wide variety of agricultural commodities, ensuring that farmers, traders, and consumers can make well-informed decisions.</p>
+            </div>
+            <div class="reason">
+                <h3><u>Interactive Maps</u></h3>
+                <p style="font-family: Comic sans ms;">Explore regional price trends across the country with our dynamic, interactive maps. Analyze price fluctuations in different locations, helping you spot opportunities and trends to maximize your profit potential.</p>
+            </div>
+            <div class="reason">
+                <h3><u>Agricultural News</u></h3>
+                <p style="font-family: Comic sans ms;">Get the latest updates on the agricultural market. Stay informed with real-time news headlines covering the most important developments in the agricultural industry. Click on "Read More" for detailed insights and trends affecting your commodities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br><br><br><br><br>
+
+
+<footer>
+<section id="team" class="text-center">
+    <div class="container">
+        <h2 style="font-weight: 800;">Meet Our Team</h2>
+        <div class="team-members">
+            
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="rishav.jfif">
+                </div>
+                <h4 style="font-family: Josefin Sans; font-weight: 600; margin-top: 1rem;">Rishav Rathor</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/rishav-rathor-5944542a8/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/Rishav-Rathor" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                
+                </div>
+            </div>
+           
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="amrit.jfif">
+                </div>
+                <h4 style="font-family: Josefin Sans; font-weight: 600; margin-top: 1rem;">Amritesh Singh</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/amriteshs11/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/Amrisingh" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="pradi.jfif">
+                </div>
+                <h4 style="font-family: Josefin Sans; font-weight: 600; margin-top: 1rem;">Pradyuman Rawat</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/praduman-rawat-12852a291/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/Pradumanrawat" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+           
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="hridya.jfif">
+                </div>
+                <h4 style="font-family: Josefin Sans; font-weight: 600; margin-top: 1rem;">Hridya Singhal</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/hridya-singhal-3b1677287/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/HridyaSinghal/HridyaSinghal" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js"></script>
+</body>
+</html>
+

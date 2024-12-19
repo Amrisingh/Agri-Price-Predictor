@@ -1,0 +1,415 @@
+
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+body {
+    
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+button {
+    margin-top: 20px;
+}
+
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.navbar {
+    padding: 15px 20px;
+    position: fixed;
+    z-index: 100;
+}
+
+.navbar-brand img {
+    margin-right: 650px;
+    
+}
+
+
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 30px;
+    margin-left: 10px;
+   
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s, transform 0.4s, border 0.4s;
+    padding: 3px 20px; 
+    border: 2px solid transparent; 
+    border-radius: 25px; 
+    font-weight: 500;
+    
+}
+
+
+.navbar-nav .nav-item .nav-link:hover {
+    
+    transform: scale(0.5); 
+}
+
+
+
+.navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #0bcaf0; 
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: aqua;  
+    z-index: 2; 
+    font-size: 19px;
+    
+
+}
+
+.navbar-nav .nav-item .nav-link:hover::after {
+    transform: translateX(-50%) scaleX(1); 
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #00ffb3; 
+    transform: scale(1.1); 
+    border-bottom: 2px solid #2cdfe5; 
+}
+
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px); 
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.content-text {
+    background-color: rgba(95, 0, 248, 0); 
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #0bbce8; 
+    animation: fadeIn 2s ease-out;
+    margin-top: 4%;
+}
+
+
+.content-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: black; 
+    animation: slideIn 1s ease-out;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    position: relative;
+    z-index: -1px;
+}
+
+.content-text h1::before{
+    content: "Welcome to Agri-Price Predictor!";
+    top: -2px;
+    left: -2px;
+    color: rgb(0, 255, 247);
+    position: absolute;
+    
+}
+
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.content-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ecf0f1; 
+    animation: fadeInScale 2s ease-out;
+    font-family: comic sans-serif;
+    font-size: 150%;
+    font-weight: 400;
+}
+
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.content-text h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+    color: black; 
+    animation: slideIn 1s ease-out;
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 3px solid aqua; 
+    padding-bottom: 10px; 
+    display: inline-block; 
+    
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#why-choose-us {
+    padding: 2rem 1rem;
+    color: #f5f5f5; 
+
+    border-radius: 3px; 
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out; 
+}
+
+#why-choose-us h2 {
+    font-size: 4rem; 
+    color: rgb(0, 4, 4); 
+    margin-bottom: 2rem;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: 600;
+    animation: fadeInUp 1s ease-out; 
+    position: relative;
+    z-index: -1px;
+}
+ 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#why-choose-us h2::after {
+    content: ''; 
+    font-size: 8rem; 
+    color: #f39c12; 
+    position: absolute;
+    right: -50px; 
+    top: -10px;
+    
+}
+
+#why-choose-us h2::before {
+    content: "Why Choose Us?";
+    top: -5px;
+    left: -px;
+    color: aqua;
+    position: absolute;
+    
+    
+}
+
+.reasons {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 5rem; 
+    
+}
+
+.reason {
+    background: rgba(0, 0, 0, 0.7); 
+    border-radius: 10px;
+    padding: 1.5rem; 
+    max-width: 370px;
+    flex: 1 1 50%;
+    transition: background-color 0.4s, transform 0.4s;
+    font-family: 'Roboto', sans-serif; 
+    color: #e0e0e0; 
+    
+}
+
+.reason:hover {
+    background-color: rgba(2, 16, 65, 0.9); 
+    transform: scale(1.10);
+    box-shadow:0 0 15px rgba(0, 255, 255, 0.979);
+}
+
+.reason h3 {
+    font-size: 1.75rem; 
+    color: aqua; 
+    margin-bottom: 0.5rem;
+    font-family: 'Times New Roman', Times, serif; 
+}
+
+.reason p {
+    font-size: 1.2rem; 
+    color: #e0e0e0; 
+    text-align: center;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#team {
+    padding: 3rem 1rem;
+    color: #f5f5f5;
+}
+
+#team h2 {
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+     color: #000000;
+     position: relative;
+    z-index: -1px;
+}
+
+#team h2::before{
+    content: "Meet Our Team";
+    top: -4px;
+    left: -px;
+    color: aqua;
+    position: absolute;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+    flex-wrap: wrap;
+   
+}
+
+.team-member {
+    text-align: center;
+    max-width: 300px;
+  
+}
+
+.member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 3px solid #eca100f3; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.member-img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 10px 10px rgba(14, 205, 219, 0.993); 
+    margin-bottom: 2rem
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-link {
+    margin: 0 0.5rem; 
+    color: #ffffff; 
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold; 
+    transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    font-family: comic sans ms;
+}
+
+.social-link:hover {
+    color: aqua; 
+    transform: translateY(-10px); 
+}
+
+.fa-linkedin{
+   font-size: 35px;
+}
+.fa-linkedin:hover{
+    transform: scale(1.3)
+ }
+.fa-github{
+    font-size: 35px;   
+}
+
+.fa-github:hover{
+     transform: scale(1.3);
+}
+
+
+
+ 

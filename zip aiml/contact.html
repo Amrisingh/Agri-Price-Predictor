@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="s.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="video-bg">
+        <video autoplay muted loop id="bg-video">
+            <source src="agri2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/templates/index.html">Price Prediction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="map.html">Interactive Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketnews.html">Agri News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="contact-container">
+            <div class="contact-form-box">
+                <h2 style="font-family: Josefin Sans; font-weight: 800;">Contact Us</h2>
+                <form id="contactForm" action="#" onsubmit="return validateForm()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                        <span class="error" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                        <span class="error" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <select id="topic">
+                            <option value="">Select a topic</option>
+                            <option value="price">Price Related Issue</option>
+                            <option value="delivery">Delivery Related Issue</option>
+                            <option value="user">User Interface Problem</option>
+                            <option value="technical">Technical Glitch</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error" id="topicError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="query">Query</label>
+                        <textarea id="query" rows="5" placeholder="Describe the whole problem"></textarea>
+                        <span class="error" id="queryError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input type="text" id="contact" placeholder="Enter your contact number">
+                        <span class="error" id="contactError"></span>
+                    </div>
+                    <button type="submit" style="font-family: Josefin Sans;"><b>Submit</b></button>
+                </form>
+            </div>
+        </div>
+        <br><br>
+    </main>
+    
+    <script>
+        function validateForm() {
+            let isValid = true;
+    
+            
+            document.querySelectorAll('.error').forEach(span => span.innerText = '');
+    
+            
+            const name = document.getElementById('name').value;
+            if (name.trim() === '') {
+                document.getElementById('nameError').innerText = 'Please enter your name.';
+                isValid = false;
+            }
+    
+            
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById('emailError').innerText = 'Please enter a valid email.';
+                isValid = false;
+            }
+    
+            
+            const topic = document.getElementById('topic').value;
+            if (topic === '') {
+                document.getElementById('topicError').innerText = 'Please select a topic.';
+                isValid = false;
+            }
+    
+           
+            const query = document.getElementById('query').value;
+            if (query.trim() === '') {
+                document.getElementById('queryError').innerText = 'Please describe your issue.';
+                isValid = false;
+            }
+    
+            
+            const contact = document.getElementById('contact').value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (!contact.match(phonePattern)) {
+                document.getElementById('contactError').innerText = 'Please enter a valid 10-digit phone number.';
+                isValid = false;
+            }
+    
+            return isValid;
+        }
+    </script>
+    
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

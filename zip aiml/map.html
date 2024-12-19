@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Commodity Prices in India</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+   
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #333;
+      background-color: #4CAF50;
+      padding: 15px;
+      margin: 0;
+      color: white;
+      letter-spacing: 1.5px;
+    }
+
+    
+    #filters {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      width: fit-content;
+    }
+
+    label {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #555;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      width: 150px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      color: white;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    
+    #map {
+      height: 600px;
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      #filters {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      select,
+      button {
+        width: 100%;
+      }
+
+      #map {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Commodity Prices Map (India)</h1>
+
+  
+  <div id="filters">
+    <label for="commodity">Commodity: </label>
+    <select id="commodity">
+      <option value="all">All</option>
+      <option value="onion">Onion</option>
+      <option value="potato">Potato</option>
+      <option value="tomato">Tomato</option>
+      <option value="carrot">Carrot</option>
+      <option value="capsicum">Capsicum</option>
+      <option value="spinach">Spinach</option>
+      <option value="broccoli">Broccoli</option>
+      <option value="cucumber">Cucumber</option>
+      <option value="garlic">Garlic</option>
+      <option value="ginger">Ginger</option>
+      <option value="cauliflower">Cauliflower</option>
+      <option value="peas">Peas</option>
+      <option value="radish">Radish</option>
+      <option value="pumpkin">Pumpkin</option>
+      <option value="sweet_potato">Sweet Potato</option>
+      <option value="cabbage">Cabbage</option>
+      <option value="eggplant">Eggplant</option>
+      <option value="bitter_gourd">Bitter Gourd</option>
+      <option value="lady_finger">Lady Finger</option>
+      <option value="mushroom">Mushroom</option>
+    </select>
+
+    <label for="timeframe">Timeframe: </label>
+    <select id="timeframe">
+      <option value="realtime">Real-Time</option>
+      <option value="week">Last Week</option>
+      <option value="month">Last Month</option>
+      <option value="three_months">Last Three Months</option>
+      <option value="six_months">Last Six Months</option>
+    </select>
+
+    <button onclick="applyFilters()">Apply Filters</button>
+  </div>
+
+ 
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    
+    const commodityData = [
+      { name: 'Onion', price: 30, region: 'Central Delhi', mandi: 'Azadpur Mandi', lat: 28.6565, lng: 77.2283, date: '2024-09-10' },
+      { name: 'Onion', price: 32, region: 'South Delhi', mandi: 'Okhla Mandi', lat: 28.5412, lng: 77.2530, date: '2024-09-12' },
+      { name: 'Potato', price: 20, region: 'North Delhi', mandi: 'Mandi Chowk', lat: 28.7188, lng: 77.1991, date: '2024-09-11' },
+      
+      { name: 'Tomato', price: 26, region: 'West Delhi', mandi: 'Tilak Nagar Mandi', lat: 28.6399, lng: 77.0800, date: '2024-09-01' },
+      { name: 'Tomato', price: 28, region: 'South West Delhi', mandi: 'Najafgarh Mandi', lat: 28.6090, lng: 76.9841, date: '2024-09-02' },
+      { name: 'Onion', price: 29, region: 'North West Delhi', mandi: 'Kanjhawala Mandi', lat: 28.7520, lng: 77.0160, date: '2024-09-03' },
+      { name: 'Cauliflower', price: 22, region: 'East Delhi', mandi: 'Seelampur Mandi', lat: 28.6626, lng: 77.2585, date: '2024-09-04' },
+      { name: 'Lady Finger', price: 35, region: 'North East Delhi', mandi: 'Nand Nagri Mandi', lat: 28.6980, lng: 77.2746, date: '2024-09-05' },
+      
+      { name: 'Capsicum', price: 34, region: 'North Delhi', mandi: 'Burari Mandi', lat: 28.7334, lng: 77.1735, date: '2024-09-06' },
+      { name: 'Cucumber', price: 15, region: 'Central Delhi', mandi: 'Paharganj Mandi', lat: 28.6447, lng: 77.2215, date: '2024-09-07' },
+      { name: 'Spinach', price: 18, region: 'South East Delhi', mandi: 'Badarpur Mandi', lat: 28.5029, lng: 77.2690, date: '2024-09-08' },
+      { name: 'Radish', price: 12, region: 'West Delhi', mandi: 'Paschim Vihar Mandi', lat: 28.6758, lng: 77.1043, date: '2024-09-09' },
+      { name: 'Pumpkin', price: 20, region: 'South Delhi', mandi: 'Malviya Nagar Mandi', lat: 28.5287, lng: 77.2079, date: '2024-09-10' },
+      
+      { name: 'Ginger', price: 70, region: 'East Delhi', mandi: 'Preet Vihar Mandi', lat: 28.6457, lng: 77.2955, date: '2024-09-11' },
+      { name: 'Broccoli', price: 50, region: 'West Delhi', mandi: 'Rajouri Garden Mandi', lat: 28.6387, lng: 77.1180, date: '2024-09-12' },
+      { name: 'Peas', price: 55, region: 'North Delhi', mandi: 'Rohini Mandi', lat: 28.7362, lng: 77.0916, date: '2024-09-13' }
+    ];
+
+    
+    const map = L.map('map').setView([28.6139, 77.2090], 10); 
+
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+   
+    function displayMarkers(data) {
+      data.forEach(item => {
+        L.marker([item.lat, item.lng]).addTo(map)
+          .bindPopup(`<b>${item.name}</b><br>Price: ₹${item.price} per kg<br>Mandi: ${item.mandi}<br>Region: ${item.region}<br>Date: ${item.date}`);
+      });
+    }
+
+    
+    function applyFilters() {
+      const selectedCommodity = document.getElementById('commodity').value;
+      const selectedTimeframe = document.getElementById('timeframe').value;
+
+      let filteredData = commodityData;
+
+      
+      if (selectedCommodity !== 'all') {
+        filteredData = filteredData.filter(item => item.name.toLowerCase() === selectedCommodity.toLowerCase());
+      }
+
+      
+      map.eachLayer(layer => {
+        if (layer instanceof L.Marker) {
+          map.removeLayer(layer);
+        }
+      });
+
+      displayMarkers(filteredData);
+    }
+
+    
+    displayMarkers(commodityData);
+  </script>
+</body>
+
+</html>

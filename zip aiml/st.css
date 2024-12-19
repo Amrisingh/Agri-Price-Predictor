@@ -1,0 +1,140 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e2e2e2, #ffffff);
+    color: #333;
+}
+
+
+.navbar {
+    background-color: #333;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+
+.navbar-brand img {
+    margin-left: 22px;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar-nav .nav-item {
+    margin: 0;
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1;
+    font-size: 12px;
+    padding: 5px 15px;
+    border-radius: 25px;
+    transition: color 0.4s, transform 0.4s, border-color 0.4s, background-color 0.4s;
+    text-decoration: none;
+    font-weight: 650;
+    font-size: larger;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f39c12;
+    background-color: rgba(246, 155, 8, 0.677);
+    border-color: #f39c12;
+    transform: scale(1.1);
+    color: #05f5ad;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1;
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+main {
+    padding: 2rem;
+    padding-top: 70px;
+}
+
+#news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.article {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: calc(33.333% - 1rem);
+    animation: fadeIn 0.6s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 0;
+}
+
+.article:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(246, 254, 3, 0.3), 0 0 15px rgba(255, 255, 0, 0.7);
+}
+
+.article img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.article h2 {
+    margin: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.article p {
+    margin: 0.5rem;
+    color: #666;
+}
+
+.article a {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
